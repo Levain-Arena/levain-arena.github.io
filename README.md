@@ -24,8 +24,9 @@ serve the files as they are. To preview locally, run `python3 -m http.server` he
   off screen. The bread is the mascot image cut into layers (arm, body, face, eyes, hat), never redrawn; the logos only
   move and change size. In each label the research topic is the headline, brushed over in the agent's colour.
 - `assets/site.js`: mobile menu, current-section underline, scroll reveals and the co-author interest form.
-- `assets/logo/`: the Levain Arena logo. `levain-arena-logo.webp` is the original; the other images are pieces cut from
-  its mark that the header and footer stack and animate. The name beside the mark is set in Jost capitals.
+- `assets/logo/`: the Levain Arena logo. `levain-arena-logo.png` is the original (the mark painted on paper); the other
+  images are pieces cut from it, with the paper lifted off, that the header and footer stack and animate. The name
+  beside the mark is set in Jost capitals.
 - `assets/logos/agents/`: each company's own logo, from its website or official GitHub organisation; `SOURCES.md` lists
   every source. They are trademarks of their owners, shown only to identify which company's model each agent is.
 - `assets/partners/`: the participating institutions' logos and photographs; `SOURCES.md` lists every file's source and
