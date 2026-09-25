@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Levain Arena">
 <meta property="og:title" content="Levain Arena: How far can an AI agent push the frontier of science with 100 million tokens?">
-<meta property="og:description" content="Nine AI agents conduct open-ended mathematical research under the same budget of 100 million tokens. Human experts review every substantive claim.">
+<meta property="og:description" content="Nine AI agents conduct open-ended mathematical research under the same budget of 100 million tokens. Each report is assessed independently by several subject-matter experts.">
 <meta property="og:url" content="https://levainarena.org/">
 <meta property="og:image" content="https://levainarena.org/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -87,7 +87,7 @@
         <li><strong>9</strong><span>AI agents</span></li>
         <li><strong>100M</strong><span>Tokens per agent</span></li>
         <li><strong>Open-ended</strong><span>Mathematical research</span></li>
-        <li><strong>Expert-validated</strong><span>Claim-by-claim review</span></li>
+        <li><strong>Expert-assessed</strong><span>Several experts per report</span></li>
       </ul>
     </div>
   </section>
@@ -135,7 +135,7 @@
           <li style="--c:#E5B44F;--k:1"><span class="sw" aria-hidden="true"></span><span class="n">2</span><span class="t">100 million tokens per agent</span></li>
           <li style="--c:#9AA663;--k:2"><span class="sw" aria-hidden="true"></span><span class="n">3</span><span class="t">Open-ended exploration in the Levain Harness</span></li>
           <li style="--c:#498D76;--k:3"><span class="sw" aria-hidden="true"></span><span class="n">4</span><span class="t">Reports, proofs, code, and formal artifacts</span></li>
-          <li style="--c:#2F7070;--k:4"><span class="sw" aria-hidden="true"></span><span class="n">5</span><span class="t">Claim-by-claim expert validation</span></li>
+          <li style="--c:#2F7070;--k:4"><span class="sw" aria-hidden="true"></span><span class="n">5</span><span class="t">Independent expert assessment</span></li>
           <li style="--c:#1D5468;--k:5"><span class="sw" aria-hidden="true"></span><span class="n">6</span><span class="t">Comparative scientific analysis</span></li>
         </ol>
         <div class="pillars">
@@ -153,7 +153,7 @@
           </div>
           <div class="reveal">
             <h3><span class="dot" style="--c:#1D5468" aria-hidden="true"></span>Human validation</h3>
-            <p>Subject-matter experts assess correctness, prior art, reproducibility, novelty, and the appropriate scope of each claim.</p>
+            <p>Subject-matter experts assess each report’s mathematical soundness, originality, and scientific value; results that warrant it go on to deeper verification of correctness, prior art, and reproducibility.</p>
           </div>
         </div>
       </div>
@@ -220,7 +220,7 @@
 
       <div class="statement reveal">
         <span class="glyph unpainted" aria-hidden="true"><i></i><i></i></span>
-        <p><span class="loud">No mathematical result is considered verified solely because it was produced by an AI agent.</span> All substantive claims are subject to independent expert review.</p>
+        <p><span class="loud">No mathematical result is considered verified solely because it was produced by an AI agent.</span> Nor is a result treated as verified because it received a high comparative evaluation score: substantive claims require appropriate independent validation before being presented as verified.</p>
       </div>
     </div>
   </section>
@@ -230,14 +230,14 @@
     <div class="wrap split">
       <div class="sec-head reveal"><h2 id="evaluation-title">Evaluation method</h2></div>
       <div class="sec-body">
-        <p class="intro reveal">AI-generated mathematical writing can appear convincing even when a proof contains a hidden gap, a computation covers only a finite range, or a claimed contribution is already known. Levain Arena therefore evaluates individual mathematical claims rather than assigning one overall impression to each report.</p>
+        <p class="intro reveal">AI-generated mathematical writing can appear convincing even when a proof contains a hidden gap, a computation covers only a finite range, or a claimed contribution is already known. Each report is therefore independently assessed by multiple subject-matter experts. Reviewers evaluate three anonymized reports and compare them on mathematical soundness, originality, and scientific value. Reports containing potentially important or disputed results proceed to deeper mathematical verification.</p>
         <ol class="phases">
-          <li class="reveal"><span class="n">1</span><h3>Claim extraction</h3><p>Each report is decomposed into explicit theorems, conjectures, constructions, counterexamples, and computational claims.</p></li>
-          <li class="reveal"><span class="n">2</span><h3>Reproducibility review</h3><p>Code, formal proofs, certificates, search procedures, and computational bounds are independently checked where available.</p></li>
-          <li class="reveal"><span class="n">3</span><h3>Subject-matter review</h3><p>Mathematicians evaluate correctness, missing cases, prior work, mathematical significance, and possible overclaiming.</p></li>
+          <li class="reveal"><span class="n">1</span><h3>Independent assessment</h3><p>Each reviewer reads three anonymized reports and scores each one from 0 to 10 on mathematical soundness, originality, and scientific value, without knowing which agent wrote it.</p></li>
+          <li class="reveal"><span class="n">2</span><h3>Comparison</h3><p>The reviewer then ranks the three reports against each other on each dimension and overall. Reviewers’ groups overlap, so every report takes part in one connected comparison.</p></li>
+          <li class="reveal"><span class="n">3</span><h3>Deeper verification</h3><p>Reports with potentially important or disputed results go on to line-by-line proof checking, independent reproduction of code and formal proofs, and targeted prior-art search.</p></li>
         </ol>
         <h3 class="kicker reveal">Final classification</h3>
-        <p class="plain reveal">Each claim receives one of the following statuses:</p>
+        <p class="plain reveal">In deeper verification, each claim receives one of the following statuses:</p>
         <ul class="statuses reveal">
           <li style="--c:#498D76">Verified</li>
           <li style="--c:#97C0A9">Correct with a minor gap</li>
@@ -248,6 +248,7 @@
           <li style="--c:#D9956B">Not reproducible</li>
           <li style="--c:#E5B44F">Potentially novel</li>
         </ul>
+        <p class="plain after-statuses reveal">The Arena ranking is published only after the evaluation window closes, data-quality checks are complete, model identities are unblinded, and the statistical analysis is final. Invited reviewers sign in to the <a class="link" href="https://review.levainarena.org/sign-in/">review portal</a>.</p>
       </div>
     </div>
   </section>
@@ -279,11 +280,11 @@
       <div class="join-grid">
         <div class="prose">
           <p class="intro reveal">We are inviting mathematicians with relevant subject expertise to join the Levain Arena manuscript as co-authors.</p>
-          <p class="reveal">Each invited mathematician will initially evaluate one report aligned with their area of expertise. The preliminary evaluation is designed to take no more than approximately two hours.</p>
+          <p class="reveal">Each invited expert evaluates three anonymized reports. The initial comparative assessment is designed to take approximately two hours in total. Invited reviewers sign in to the <a class="link" href="https://review.levainarena.org/sign-in/">review portal</a>.</p>
           <h3 class="reveal">Co-author responsibilities</h3>
           <p class="reveal">Co-authors help us:</p>
           <ul class="list reveal">
-            <li>assess the correctness of the report’s principal mathematical claims;</li>
+            <li>assess the correctness of each report’s principal mathematical claims;</li>
             <li>identify relevant prior work;</li>
             <li>distinguish verified results from incomplete or incorrect claims;</li>
             <li>evaluate whether any contribution may be genuinely new;</li>
@@ -381,6 +382,7 @@
         <!-- Contact points to the form until there is a project email -->
         <li><a href="#join">Contact</a></li>
         <li><a href="https://github.com/levain-arena">GitHub</a></li>
+        <li><a href="https://review.levainarena.org/sign-in/">Reviewer sign-in</a></li>
       </ul>
     </nav>
   </div>
