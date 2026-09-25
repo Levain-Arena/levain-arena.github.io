@@ -13,8 +13,9 @@ serve the files as they are. To preview locally, run `python3 -m http.server` he
 - `assets/painting.js`: the hero painting, a yeast culture. A budding mother cell (navy wall, a vacuole, a gold nucleus,
   placed low like Albers' nested squares) and two small daughter cells are brushed in stroke by stroke after a pencil
   underdrawing. Gold is the 100-million-token budget and navy human expert review; the vacuole is re-brushed in each
-  agent's colour in turn. The culture stays alive: granules stream through the cytoplasm, the daughter cells drift, the
-  cell breathes, and light follows the mouse. It reads each agent's name, topic, colour (`--c`) and logo from the agents
+  agent's colour in turn. The culture stays alive: granules stream through the cytoplasm, the two daughter cells travel
+  slowly round the mother on paths of different curvature (no tracks are drawn; each passes behind her on the far side
+  of its path), the cell breathes, and light follows the mouse. It reads each agent's name, topic, colour (`--c`) and logo from the agents
   list in `index.html`. `?paint=N` shows frame N finished and still (0 is the arena, 1 to 9 the agents).
 - `assets/bakery.js` and `assets/bread/`: the agents, set as an index. Each entry has a small stage where the Bake AI
   bread meets that agent's company logo, and every agent has its own scene: Kimi jumps for the moon, MiniMax dances to

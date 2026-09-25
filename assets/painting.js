@@ -3,8 +3,8 @@
 // A pencil underdrawing appears, then everything is brushed in stroke by stroke: the navy cell wall, the vacuole,
 // the gold nucleus. Navy (expert review) and gold (the budget) never change; the vacuole is repainted in each
 // agent's colour in turn, again stroke by stroke over the old colour. The culture lives without bubbling: granules
-// stream slowly through the mother's cytoplasm, the two daughter cells drift a little in the medium, and the culture
-// breathes slowly.
+// stream slowly through the mother's cytoplasm, the two daughter cells travel slowly round the mother on paths of
+// different curvature (passing behind it on the far side), and the culture breathes slowly.
 // The agents' names, topics, colours and logos are read from the agents list further down the page.
 // With reduced motion the finished painting is shown and changes only when a swatch is pressed.
 
@@ -123,7 +123,12 @@
     const wall = union(O.path, bud.path), d1 = union(D1.path, D1b.path), d2 = union(D2.path, D2b.path);
     const vac = new Path2D();                     // the vacuole without the nucleus, so a repaint leaves the gold alone
     vac.addPath(M.path); vac.addPath(I.path);
-    geo = {O, bud, M, I, D1, D1b, D2, D2b, wall, d1, d2, vac};
+    const outside = new Path2D();                 // everything but the mother (with 'evenodd'): where a far daughter shows
+    outside.rect(-S, -S, 3 * S, 3 * S); outside.addPath(wall);
+    // each daughter's path round the mother: both along the long diagonal through where they are painted, one flat and
+    // one rounder, so that they curve differently; they go round in opposite directions, a lap in 70 and 95 seconds
+    const paths = {d1: path(D1, .495, .505, 45, .35, 1 / 70000), d2: path(D2, .495, .505, 45, .6, -1 / 95000)};
+    geo = {O, bud, M, I, D1, D1b, D2, D2b, wall, d1, d2, vac, outside, paths};
     geo.granules = granuleSet();
     tex = {O: swirl(O, 5, px), M: swirl(M, 9, px), I: swirl(I, 17, px), raw: weave(13, px)};
     drawShade();
@@ -131,6 +136,12 @@
     return true;
   }
   function union(a, b) { const p = new Path2D(); p.addPath(a); p.addPath(b); return p; }
+  // an elliptical path round the point (cx, cy), tilted and with the given flatness, through the centre of cell c
+  function path(c, cx, cy, tiltDeg, ratio, turns) {
+    const tilt = tiltDeg * Math.PI / 180, ct = Math.cos(tilt), st = Math.sin(tilt), dx = c.cx - cx * S, dy = c.cy - cy * S;
+    const u = dx * ct + dy * st, v = -dx * st + dy * ct, a = Math.hypot(u, v / ratio), b = a * ratio;
+    return {turns, from: Math.atan2(v / b, u / a), at: th => [cx * S + a * Math.cos(th) * ct - b * Math.sin(th) * st, cy * S + a * Math.cos(th) * st + b * Math.sin(th) * ct]};
+  }
   function daughterBud(c, angDeg, size, seed) {
     const ang = angDeg * Math.PI / 180, tip = c.edgeAt(ang), rb = c.a / S * size;
     return cell(tip[0] / S + Math.cos(ang) * rb * .5, tip[1] / S + Math.sin(ang) * rb * .5, rb, rb * .92, angDeg, seed, .03);
@@ -359,17 +370,22 @@
     }
     g.restore();
   }
-  // the daughter cells, each drifting and turning a little about where it was painted
-  const drift = {d1: [wave(501), wave(502), wave(503)], d2: [wave(601), wave(602), wave(603)]};
-  function drawDaughters(g, now, amt) {
-    const x = now / 150;
+  // The daughter cells, each travelling its path round the mother and turning a little as it goes. On the far half of
+  // its path a cell passes behind the mother (drawn only outside her) and is slightly smaller; it starts where it was
+  // painted, easing into its pace as the painting comes to life.
+  const turnOf = {d1: wave(503), d2: wave(603)};
+  function drawDaughters(g, now, amt, part) {
+    const t = Math.max(0, now - lifeFrom), run = still ? 0 : t < 3000 ? t * t / 6000 : t - 1500;
     for (const [k, c] of [['d1', geo.D1], ['d2', geo.D2]]) {
-      const [wx, wy, wt] = drift[k];
-      const dx = amt * wx(x) * S * .014, dy = amt * wy(x * 1.1) * S * .012, rot = amt * wt(x * .8) * .06;
+      const p = geo.paths[k], th = p.from + 2 * Math.PI * p.turns * run, near = Math.sin(th) >= 0;
+      if ((part === 'front') !== near) continue;
+      const [x, y] = p.at(th), size = (1 + .1 * Math.sin(th)) / (1 + .1 * Math.sin(p.from)), rot = amt * turnOf[k](now / 180) * .06;
       g.save();
       g.setTransform(dpr, 0, 0, dpr, 0, 0);
-      g.translate(c.cx + dx, c.cy + dy);
+      if (!near) g.clip(geo.outside, 'evenodd');
+      g.translate(x, y);
       g.rotate(rot);
+      g.scale(size, size);
       g.translate(-c.cx, -c.cy);
       g.drawImage(lay[k].c, 0, 0, S, S);
       g.restore();
@@ -438,7 +454,7 @@
 
   // --- state
   let start = 0, last = 0, shown = 0, next = -1, turn = 0, active = [], settled = false, dirty = true;
-  let lifeFrom = Infinity, grainsAt = 0;   // when the daughters start to drift; when the granules have been dabbed in
+  let lifeFrom = Infinity, grainsAt = 0;   // when the daughters set off; when the granules have been dabbed in
   let nextAt = Infinity, auto = false, hovering = false, holdUntil = 0, labelTimer = 0;
 
   function go(i, byHand) {
@@ -564,11 +580,14 @@
     ctx.globalAlpha = 1;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(base, 0, 0);
-    // the living parts, drawn fresh each frame: the daughters (still until the entrance is over) and the granules
+    // the living parts, drawn fresh each frame: daughters on the far side of their paths (behind the mother), the
+    // granules, then daughters on the near side; the daughters stay put until the entrance is over
     const life = still ? 0 : easeOut((now - lifeFrom) / 2500);
-    drawDaughters(ctx, now, life);
+    drawDaughters(ctx, now, life, 'back');
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     drawGranules(ctx, now, still ? 1 : easeOut((now - grainsAt) / 600), still ? 0 : 1);
+    drawDaughters(ctx, now, life, 'front');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     light(lamp.x, lamp.y);
     holder.classList.add('live');
 
