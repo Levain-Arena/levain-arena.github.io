@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Levain Arena</title>
+<meta name="description" content="Levain Arena gives nine AI agents the freedom to conduct open-ended mathematical research, each under the same fixed budget of 100 million tokens.">
+<meta name="theme-color" content="#F5F2EA">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/favicon-64.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Levain Arena">
+<meta property="og:title" content="Levain Arena: How far can an AI agent push the frontier of science with 100 million tokens?">
+<meta property="og:description" content="Nine AI agents conduct open-ended mathematical research under the same budget of 100 million tokens. Human experts review every substantive claim.">
+<meta property="og:url" content="https://levain-arena.github.io/">
+<meta property="og:image" content="https://levain-arena.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Levain Arena logo and a painted yeast cell, a gold nucleus inside green inside navy, beside the question: How far can an AI agent push the frontier of science with 100 million tokens?">
+<meta name="twitter:card" content="summary_large_image">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..600;1,300..600&display=swap">
+<link rel="canonical" href="https://levain-arena.github.io/">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Levain Arena, back to top">
+      <span class="logo" role="img" aria-label="Levain Arena"><span class="logo-mark"><img class="l-ring" src="assets/logo/ring.png" alt=""><img class="l-green" src="assets/logo/green.png" alt=""><img class="l-gold" src="assets/logo/gold.png" alt=""><img class="l-b" style="--n:4;--ox:90.04%;--oy:3.98%;--dx:-10.9%;--dy:22.8%" src="assets/logo/b1.png" alt=""><img class="l-b" style="--n:1;--ox:80.84%;--oy:12.05%;--dx:-1.7%;--dy:14.8%" src="assets/logo/b2.png" alt=""><img class="l-b" style="--n:3;--ox:92.74%;--oy:19.44%;--dx:-13.6%;--dy:7.4%" src="assets/logo/b3.png" alt=""><img class="l-b" style="--n:0;--ox:80.28%;--oy:27.25%;--dx:-1.2%;--dy:-0.5%" src="assets/logo/b4.png" alt=""><img class="l-b" style="--n:2;--ox:90.65%;--oy:30.73%;--dx:-11.6%;--dy:-3.9%" src="assets/logo/b5.png" alt=""></span><span class="l-word" aria-hidden="true">Levain Arena</span></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <ul>
+        <li><a href="#question">Research question</a></li>
+        <li><a href="#design">Arena design</a></li>
+        <li><a href="#agents">Agents</a></li>
+        <li><a href="#evaluation">Evaluation</a></li>
+        <li><a href="#paper">Paper</a></li>
+      </ul>
+      <a class="btn btn-sm" href="#join">Join as a co-author</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero: the painting repaints its middle circle for each agent (assets/painting.js) -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-title" class="rise">How far can an AI agent push the frontier of science with 100&nbsp;million tokens?</h1>
+        <p class="lede rise">Levain Arena gives nine AI agents the freedom to conduct open-ended mathematical research, each under the same fixed budget of 100 million tokens, all running in the <a class="harness-link" href="#harness">Levain Harness</a>.</p>
+        <p class="support rise">We study what they discover, how they reason, where they fail, and how AI-generated research can be rigorously validated by human experts.</p>
+        <div class="actions rise">
+          <a class="btn" href="#join">Join as a co-author</a>
+          <a class="link" href="#design">Explore the research design</a>
+          <a class="link" href="#agents">Meet the agents</a>
+        </div>
+      </div>
+      <figure class="hero-art" role="group" aria-label="A painting of three nested circles: a gold circle for the 100-million-token budget, inside a middle circle for each agent's research, inside a navy circle for human expert validation.">
+        <div class="painting">
+          <canvas aria-hidden="true"></canvas>
+          <div class="homage" aria-hidden="true"><i class="m"></i><i class="n"></i><span class="grain"></span></div>
+        </div>
+        <figcaption class="label">
+          <div class="label-now">
+            <div class="label-head">
+              <span class="label-logo" aria-hidden="true"><img src="assets/logo/mark.png" alt=""></span>
+              <span class="label-name">Levain Arena</span>
+              <span class="label-count"></span>
+            </div>
+            <p class="label-title">Nine AI agents, each with 100 million tokens</p>
+          </div>
+          <div class="swatches" role="group" aria-label="Show one agent in the painting"></div>
+          <p class="label-key">Gold is the budget of 100 million tokens. Navy is human expert validation, which encloses everything an agent produces. Both are the same for every agent; the colour between them is each agent’s own research.</p>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="wrap">
+      <ul class="metrics rise">
+        <li><strong>9</strong><span>AI agents</span></li>
+        <li><strong>100M</strong><span>Tokens per agent</span></li>
+        <li><strong>Open-ended</strong><span>Mathematical research</span></li>
+        <li><strong>Expert-validated</strong><span>Claim-by-claim review</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Research question -->
+  <section class="section" id="question" aria-labelledby="question-title">
+    <div class="wrap split">
+      <div class="sec-head reveal"><h2 id="question-title">Research question</h2></div>
+      <div class="sec-body prose">
+        <p class="reveal">Modern AI systems are usually evaluated on predefined problems with known answers. Scientific research is different. The problem itself may be unclear, the relevant direction must be chosen, and a useful result may emerge only after extended exploration.</p>
+        <p class="reveal">Levain Arena studies what happens when AI agents are given substantial freedom to conduct mathematical research while operating under an identical fixed budget.</p>
+        <div class="question reveal">
+          <span class="glyph" aria-hidden="true"><i></i><i></i></span>
+          <p>When different AI agents are each given 100 million tokens for open-ended mathematical research, what kinds of correct, nontrivial, and potentially novel scientific contributions can they produce?</p>
+        </div>
+        <p class="reveal">We also study a broader question:</p>
+        <div class="question question-review reveal">
+          <span class="glyph" aria-hidden="true"><i></i><i></i></span>
+          <p>How should AI-generated research be validated, interpreted, and incorporated into the human scientific process?</p>
+        </div>
+        <p class="principle reveal">Levain Arena does not treat an AI-generated claim as a discovery until it has undergone independent mathematical validation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Arena design -->
+  <section class="section" id="design" aria-labelledby="design-title">
+    <div class="wrap split">
+      <div class="sec-head reveal"><h2 id="design-title">Arena design</h2></div>
+      <div class="sec-body">
+        <div class="harness reveal" id="harness">
+          <span class="glyph" aria-hidden="true"><i></i><i></i></span>
+          <h3 class="kicker">The Levain Harness</h3>
+          <p class="harness-lede">Levain Arena runs on the <strong>Levain Harness</strong>: an environment that drives open-ended exploration, and the infrastructure that lets an agent keep researching for days on end.</p>
+          <ul class="harness-parts">
+            <li><h4>Long-running research</h4><p>Work proceeds in bounded episodes over durable state: memory, open threads and lessons carry from one episode to the next.</p></li>
+            <li><h4>Parallel workers</h4><p>Literature search, computation and Lean formalization run as jobs in sandboxed workers.</p></li>
+            <li><h4>Independent verification</h4><p>Every claim enters an append-only ledger. A separate account re-runs its checker in a clean container with no network, and proofs go through the Lean&nbsp;4 kernel. No agent can grade its own work.</p></li>
+            <li><h4>Budget and isolation</h4><p>Every token is metered against the same <span class="nw">100-million</span> budget, and no channel lets an agent publish anything.</p></li>
+          </ul>
+        </div>
+        <h3 class="kicker reveal">Research process</h3>
+        <ol class="steps">
+          <li style="--c:#EDD6A0;--k:0"><span class="sw" aria-hidden="true"></span><span class="n">1</span><span class="t">9 model-based agents</span></li>
+          <li style="--c:#E5B44F;--k:1"><span class="sw" aria-hidden="true"></span><span class="n">2</span><span class="t">100 million tokens per agent</span></li>
+          <li style="--c:#9AA663;--k:2"><span class="sw" aria-hidden="true"></span><span class="n">3</span><span class="t">Open-ended exploration in the Levain Harness</span></li>
+          <li style="--c:#498D76;--k:3"><span class="sw" aria-hidden="true"></span><span class="n">4</span><span class="t">Reports, proofs, code, and formal artifacts</span></li>
+          <li style="--c:#2F7070;--k:4"><span class="sw" aria-hidden="true"></span><span class="n">5</span><span class="t">Claim-by-claim expert validation</span></li>
+          <li style="--c:#1D5468;--k:5"><span class="sw" aria-hidden="true"></span><span class="n">6</span><span class="t">Comparative scientific analysis</span></li>
+        </ol>
+        <div class="pillars">
+          <div class="reveal">
+            <h3><span class="dot" style="--c:#E5B44F" aria-hidden="true"></span>Equal budget</h3>
+            <p>Every agent receives the same fixed budget of 100 million tokens, enabling comparison under a common resource constraint.</p>
+          </div>
+          <div class="reveal">
+            <h3><span class="dot" style="--c:#9AA663" aria-hidden="true"></span>Research freedom</h3>
+            <p>Agents may select research directions, formulate conjectures, test examples, construct proofs, and use computational or formal tools.</p>
+          </div>
+          <div class="reveal">
+            <h3><span class="dot" style="--c:#498D76" aria-hidden="true"></span>Research artifacts</h3>
+            <p>Each run produces a research report together with its available code, computational evidence, formalization, and intermediate artifacts.</p>
+          </div>
+          <div class="reveal">
+            <h3><span class="dot" style="--c:#1D5468" aria-hidden="true"></span>Human validation</h3>
+            <p>Subject-matter experts assess correctness, prior art, reproducibility, novelty, and the appropriate scope of each claim.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agents: the hero painting reads its colours, names, topics and logos from this list -->
+  <section class="section room" id="agents" aria-labelledby="agents-title">
+    <div class="wrap">
+      <div class="sec-row reveal">
+        <h2 id="agents-title">The agents</h2>
+        <p>All nine agent runs have completed.</p>
+      </div>
+      <ul class="plates">
+        <li class="reveal" data-act="moon" style="--c:#6E8B5E">
+          <div class="plate stage"><span class="floor" aria-hidden="true"></span><span class="bread" aria-hidden="true"><img class="b-arm" src="assets/bread/arm.png" alt=""><img class="b-body" src="assets/bread/body.png" alt=""><img class="b-face" src="assets/bread/face.png" alt=""><img class="b-eyes" src="assets/bread/eyes.png" alt=""><img class="b-hat" src="assets/bread/hat.png" alt=""></span><img class="mlogo" src="assets/logos/agents/kimi.svg" alt="Kimi (Moonshot AI) logo" loading="lazy"></div>
+          <div class="caption"><h3><span class="chip" aria-hidden="true"></span>Kimi K3</h3><p class="work"><span class="hl">Tight cases for <span class="nw">union-closed</span> families and <span class="nw">Erdős–Selfridge</span> problem&nbsp;647</span></p><p class="meta">100,000,000 tokens · Completed</p></div>
+        </li>
+        <li class="reveal" data-act="dance" style="--c:#A5453A">
+          <div class="plate stage"><span class="floor" aria-hidden="true"></span><span class="bread" aria-hidden="true"><img class="b-arm" src="assets/bread/arm.png" alt=""><img class="b-body" src="assets/bread/body.png" alt=""><img class="b-face" src="assets/bread/face.png" alt=""><img class="b-eyes" src="assets/bread/eyes.png" alt=""><img class="b-hat" src="assets/bread/hat.png" alt=""></span><img class="mlogo" src="assets/logos/agents/minimax.svg" alt="MiniMax logo" loading="lazy"></div>
+          <div class="caption"><h3><span class="chip" aria-hidden="true"></span>MiniMax M3</h3><p class="work"><span class="hl">Lean formalization of <span class="nw">Faulhaber–Bernoulli</span> identities and the Grundy domination <span class="nw">strong-product</span> conjecture</span></p><p class="meta">100,000,000 tokens · Completed</p></div>
+        </li>
+        <li class="reveal" data-act="whale" style="--c:#3F6A96">
+          <div class="plate stage"><span class="floor" aria-hidden="true"></span><span class="bread" aria-hidden="true"><img class="b-arm" src="assets/bread/arm.png" alt=""><img class="b-body" src="assets/bread/body.png" alt=""><img class="b-face" src="assets/bread/face.png" alt=""><img class="b-eyes" src="assets/bread/eyes.png" alt=""><img class="b-hat" src="assets/bread/hat.png" alt=""></span><img class="mlogo" src="assets/logos/agents/deepseek.svg" alt="DeepSeek logo" loading="lazy"></div>
+          <div class="caption"><h3><span class="chip" aria-hidden="true"></span>DeepSeek V4 Pro</h3><p class="work"><span class="hl">Unimodality and <span class="nw">log-concavity</span> of independence and domination polynomials, minimal counterexamples, and infinite families</span></p><p class="meta">100,000,000 tokens · Completed</p></div>
+        </li>
+        <li class="reveal" data-act="zigzag" style="--c:#8A6B4E">
+          <div class="plate stage"><span class="floor" aria-hidden="true"></span><span class="bread" aria-hidden="true"><img class="b-arm" src="assets/bread/arm.png" alt=""><img class="b-body" src="assets/bread/body.png" alt=""><img class="b-face" src="assets/bread/face.png" alt=""><img class="b-eyes" src="assets/bread/eyes.png" alt=""><img class="b-hat" src="assets/bread/hat.png" alt=""></span><img class="mlogo" src="assets/logos/agents/zai.svg" alt="Z.ai (Zhipu AI) logo" loading="lazy"></div>
+          <div class="caption"><h3><span class="chip" aria-hidden="true"></span>GLM 5.3</h3><p class="work"><span class="hl">Independence polynomials of trees, consecutive <span class="nw">log-concavity</span> breaks, and an audit of arguments related to Frankl’s conjecture</span></p><p class="meta">100,000,000 tokens · Completed</p></div>
+        </li>
+        <li class="reveal" data-act="duck" style="--c:#6F7076">
+          <div class="plate stage"><span class="floor" aria-hidden="true"></span><span class="bread" aria-hidden="true"><img class="b-arm" src="assets/bread/arm.png" alt=""><img class="b-body" src="assets/bread/body.png" alt=""><img class="b-face" src="assets/bread/face.png" alt=""><img class="b-eyes" src="assets/bread/eyes.png" alt=""><img class="b-hat" src="assets/bread/hat.png" alt=""></span><img class="mlogo" src="assets/logos/agents/grok.svg" alt="Grok (xAI) logo" loading="lazy"></div>
+          <div class="caption"><h3><span class="chip" aria-hidden="true"></span>Grok 4.6</h3><p class="work"><span class="hl">Independence polynomials of <span class="nw">K<sub>2</sub>-spider</span> trees and domination polynomials of <span class="nw">P<sub>3</sub>-spider</span> trees</span></p><p class="meta">100,000,000 tokens · Completed</p></div>
+        </li>
+        <li class="reveal" data-act="sparkle" style="--c:#3B7E79">
+          <div class="plate stage"><span class="floor" aria-hidden="true"></span><span class="bread" aria-hidden="true"><img class="b-arm" src="assets/bread/arm.png" alt=""><img class="b-body" src="assets/bread/body.png" alt=""><img class="b-face" src="assets/bread/face.png" alt=""><img class="b-eyes" src="assets/bread/eyes.png" alt=""><img class="b-hat" src="assets/bread/hat.png" alt=""></span><img class="mlogo" src="assets/logos/agents/gemini.svg" alt="Google Gemini logo" loading="lazy"></div>
+          <div class="caption"><h3><span class="chip" aria-hidden="true"></span>Gemini 3.1 Pro</h3><p class="work"><span class="hl"><span class="nw">Large-scale</span> exact enumeration of domination and independence polynomials across multiple graph families</span></p><p class="meta">100,000,000 tokens · Completed</p></div>
+        </li>
+        <li class="reveal" data-act="toss" style="--c:#5A5790">
+          <div class="plate stage"><span class="floor" aria-hidden="true"></span><span class="bread" aria-hidden="true"><img class="b-arm" src="assets/bread/arm.png" alt=""><img class="b-body" src="assets/bread/body.png" alt=""><img class="b-face" src="assets/bread/face.png" alt=""><img class="b-eyes" src="assets/bread/eyes.png" alt=""><img class="b-hat" src="assets/bread/hat.png" alt=""></span><img class="mlogo" src="assets/logos/agents/openai.svg" alt="OpenAI logo" loading="lazy"></div>
+          <div class="caption"><h3><span class="chip" aria-hidden="true"></span>GPT-6 Astra</h3><p class="work"><span class="hl">Independence polynomials of spherical trees, <span class="nw">max-plus</span> recurrences, and finite jets</span></p><p class="meta">100,000,000 tokens · Completed</p></div>
+        </li>
+        <li class="reveal" data-act="sunrise" style="--c:#CB6B2E">
+          <div class="plate stage"><span class="floor" aria-hidden="true"></span><span class="bread" aria-hidden="true"><img class="b-arm" src="assets/bread/arm.png" alt=""><img class="b-body" src="assets/bread/body.png" alt=""><img class="b-face" src="assets/bread/face.png" alt=""><img class="b-eyes" src="assets/bread/eyes.png" alt=""><img class="b-hat" src="assets/bread/hat.png" alt=""></span><img class="mlogo" src="assets/logos/agents/openai.svg" alt="OpenAI logo" loading="lazy"></div>
+          <div class="caption"><h3><span class="chip" aria-hidden="true"></span>GPT-5.6 Sol</h3><p class="work"><span class="hl">Domination polynomials of rooted <span class="nw">depth-three</span> bundle trees</span></p><p class="meta">100,000,000 tokens · Completed</p></div>
+        </li>
+        <li class="reveal" data-act="sundial" style="--c:#B56A7E">
+          <div class="plate stage"><span class="floor" aria-hidden="true"></span><span class="bread" aria-hidden="true"><img class="b-arm" src="assets/bread/arm.png" alt=""><img class="b-body" src="assets/bread/body.png" alt=""><img class="b-face" src="assets/bread/face.png" alt=""><img class="b-eyes" src="assets/bread/eyes.png" alt=""><img class="b-hat" src="assets/bread/hat.png" alt=""></span><img class="mlogo" src="assets/logos/agents/openai.svg" alt="OpenAI logo" loading="lazy"></div>
+          <div class="caption"><h3><span class="chip" aria-hidden="true"></span>GPT-6 Sol</h3><p class="work"><span class="hl">Domination polynomials of paths and of caterpillars with bare spine vertices, including a <span class="nw">Lean-checked</span> <span class="nw">total-positivity</span> inequality</span></p><p class="meta">100,000,000 tokens · Completed</p></div>
+        </li>
+      </ul>
+
+      <div class="split status-block">
+        <div class="sec-head reveal"><h3>Current status</h3></div>
+        <dl class="status-table reveal">
+          <div><dt>Agent runs</dt><dd>9 completed</dd></div>
+          <div><dt>Token budget</dt><dd>100 million tokens allocated to each agent</dd></div>
+          <div><dt>Completed reports</dt><dd>9</dd></div>
+          <div><dt>Research areas</dt><dd>Combinatorics, graph theory, graph polynomials, number theory, formal mathematics, SAT, and computational mathematics</dd></div>
+          <div><dt>Validation</dt><dd>Expert evaluation underway</dd></div>
+          <div><dt>Manuscript</dt><dd>In preparation</dd></div>
+        </dl>
+      </div>
+
+      <div class="statement reveal">
+        <span class="glyph unpainted" aria-hidden="true"><i></i><i></i></span>
+        <p><span class="loud">No mathematical result is considered verified solely because it was produced by an AI agent.</span> All substantive claims are subject to independent expert review.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Evaluation -->
+  <section class="section" id="evaluation" aria-labelledby="evaluation-title">
+    <div class="wrap split">
+      <div class="sec-head reveal"><h2 id="evaluation-title">Evaluation method</h2></div>
+      <div class="sec-body">
+        <p class="intro reveal">AI-generated mathematical writing can appear convincing even when a proof contains a hidden gap, a computation covers only a finite range, or a claimed contribution is already known. Levain Arena therefore evaluates individual mathematical claims rather than assigning one overall impression to each report.</p>
+        <ol class="phases">
+          <li class="reveal"><span class="n">1</span><h3>Claim extraction</h3><p>Each report is decomposed into explicit theorems, conjectures, constructions, counterexamples, and computational claims.</p></li>
+          <li class="reveal"><span class="n">2</span><h3>Reproducibility review</h3><p>Code, formal proofs, certificates, search procedures, and computational bounds are independently checked where available.</p></li>
+          <li class="reveal"><span class="n">3</span><h3>Subject-matter review</h3><p>Mathematicians evaluate correctness, missing cases, prior work, mathematical significance, and possible overclaiming.</p></li>
+        </ol>
+        <h3 class="kicker reveal">Final classification</h3>
+        <p class="plain reveal">Each claim receives one of the following statuses:</p>
+        <ul class="statuses reveal">
+          <li style="--c:#498D76">Verified</li>
+          <li style="--c:#97C0A9">Correct with a minor gap</li>
+          <li style="--c:#EDD39A">Incomplete</li>
+          <li style="--c:#A8432F">Incorrect</li>
+          <li style="--c:#6F8296">Known result</li>
+          <li style="--c:#C8C2B5">Novelty unclear</li>
+          <li style="--c:#D9956B">Not reproducible</li>
+          <li style="--c:#E5B44F">Potentially novel</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paper -->
+  <section class="section" id="paper" aria-labelledby="paper-title">
+    <div class="wrap split">
+      <div class="sec-head reveal"><h2 id="paper-title">The Levain Arena paper</h2></div>
+      <div class="sec-body prose">
+        <p class="reveal">We are preparing a research paper presenting the design and outcomes of Levain Arena.</p>
+        <p class="reveal">The manuscript will report:</p>
+        <ul class="list reveal">
+          <li>the controlled 100-million-token research protocol;</li>
+          <li>the behavior and outputs of the nine named AI agents;</li>
+          <li>the mathematical claims produced across the runs;</li>
+          <li>independent expert evaluations of those claims;</li>
+          <li>recurring strengths, failure modes, and research strategies; and</li>
+          <li>the implications for AI-assisted scientific discovery.</li>
+        </ul>
+        <p class="manuscript reveal"><span>Manuscript status</span><strong>In preparation</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Co-author invitation -->
+  <section class="section join" id="join" aria-labelledby="join-title">
+    <div class="wrap">
+      <h2 id="join-title" class="reveal">Join Levain Arena as a mathematical co-author</h2>
+      <div class="join-grid">
+        <div class="prose">
+          <p class="intro reveal">We are inviting mathematicians with relevant subject expertise to join the Levain Arena manuscript as co-authors.</p>
+          <p class="reveal">Each invited mathematician will initially evaluate one report aligned with their area of expertise. The preliminary evaluation is designed to take no more than approximately two hours.</p>
+          <h3 class="reveal">Co-author responsibilities</h3>
+          <p class="reveal">Co-authors help us:</p>
+          <ul class="list reveal">
+            <li>assess the correctness of the report’s principal mathematical claims;</li>
+            <li>identify relevant prior work;</li>
+            <li>distinguish verified results from incomplete or incorrect claims;</li>
+            <li>evaluate whether any contribution may be genuinely new;</li>
+            <li>review the manuscript sections that rely on their assessment; and</li>
+            <li>approve the final manuscript before submission.</li>
+          </ul>
+          <h3 class="reveal">Collaboration terms</h3>
+          <p class="reveal">This is an academic collaboration rather than a paid consulting engagement.</p>
+          <h3 class="reveal">AI tool policy</h3>
+          <p class="reveal">Co-authors may use AI tools or mathematical agents during the evaluation. If access to a paid model would be useful, the Levain Arena team may be able to arrange access.</p>
+        </div>
+
+        <form class="form reveal" id="interest" aria-labelledby="form-title">
+          <h3 id="form-title">Express interest in joining</h3>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Institutional email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-area">Research area</label><input id="f-area" name="research_area" required></div>
+          <div class="field"><label for="f-web">Personal or faculty webpage</label><input id="f-web" name="webpage" type="url" inputmode="url" placeholder="https://" required></div>
+          <div class="field"><label for="f-msg">Message <span>(optional)</span></label><textarea id="f-msg" name="message" rows="4"></textarea></div>
+          <div class="hp" aria-hidden="true"><label for="f-company">Company</label><input id="f-company" name="company" tabindex="-1" autocomplete="off"></div>
+          <button class="btn" type="submit">Express interest in joining</button>
+          <p class="form-note">We use the details you send only to contact you about Levain Arena, and we do not share them outside the project team.</p>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Institutions: official logos over each institution's colour and a photograph (sources in assets/partners/SOURCES.md) -->
+  <section class="section institutions" aria-labelledby="inst-title">
+    <div class="wrap">
+      <h2 id="inst-title">Participating institutions</h2>
+      <ul class="partners">
+        <li class="partner reveal" style="--brand:#231A15;--pos:62% 40%">
+          <img class="photo" src="assets/partners/bake-ai.jpg" alt="" loading="lazy">
+          <img class="inst-logo white" style="--lh:21px" src="assets/partners/bake-ai-wordmark.svg" alt="Bake AI">
+        </li>
+        <li class="partner reveal" style="--brand:#0C2340;--pos:50% 28%">
+          <img class="photo" src="assets/partners/notre-dame.jpg" alt="" loading="lazy">
+          <img class="inst-logo white" style="--lh:31px" src="assets/partners/nd-academic-mark.svg" alt="University of Notre Dame">
+        </li>
+        <li class="partner reveal" style="--brand:#8C1515;--pos:50% 45%">
+          <img class="photo" src="assets/partners/stanford.jpg" alt="" loading="lazy">
+          <img class="inst-logo" style="--lh:24px" src="assets/partners/stanford-wordmark-white.png" alt="Stanford University">
+        </li>
+        <li class="partner reveal" style="--brand:#003660;--pos:30% 45%">
+          <img class="photo" src="assets/partners/ucsb.jpg" alt="" loading="lazy">
+          <img class="inst-logo white" style="--lh:12px" src="assets/partners/ucsb-wordmark.svg" alt="UC Santa Barbara">
+        </li>
+        <li class="partner reveal" style="--brand:#4B2E83;--pos:50% 35%">
+          <img class="photo" src="assets/partners/uw.jpg" alt="" loading="lazy">
+          <img class="inst-logo" style="--lh:16px" src="assets/partners/uw-signature-left-white.png" alt="University of Washington">
+        </li>
+      </ul>
+      <p class="photo-credits">Photographs, cropped and tinted, via Wikimedia Commons: Notre Dame by <a href="https://commons.wikimedia.org/wiki/File:The_Main_Building%27s_gold_dome_topped_by_a_golden_statue_of_St._Mary_at_the_University_of_Notre_Dame,_a_Catholic_research_university_located_in_Notre_Dame,_an_unincorporated_community_north_of_the_city_LCCN2013650739.tif">Carol M. Highsmith</a> (public domain); Stanford by <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_campus_in_2016.jpg">Frank Schulenburg</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>); UC Santa Barbara by <a href="https://commons.wikimedia.org/wiki/File:UCSB_University_Center_and_Storke_Tower.jpg">Coolcaesar</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>); University of Washington by <a href="https://commons.wikimedia.org/wiki/File:University_of_Washington_Quad_cherry_blossoms_2017_-_10.jpg">Joe Mabel</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>). Bake AI painting (evening river) from <a href="https://www.bakeai.inc/">bakeai.inc</a>.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap split">
+      <div class="sec-head reveal"><h2 id="faq-title">Frequently asked questions</h2></div>
+      <div class="sec-body">
+        <dl class="faq">
+          <div class="reveal"><dt>Why 100 million tokens?</dt><dd>The fixed token budget provides a common resource constraint while remaining large enough to support extended exploration, revision, computation, and proof development.</dd></div>
+          <div class="reveal"><dt>Are the agents solving predefined problems?</dt><dd>No. Agents receive substantial freedom to select directions and pursue mathematical questions within the arena’s research environment.</dd></div>
+          <div class="reveal"><dt>Are the results already verified?</dt><dd>Expert evaluation is currently underway. No AI-generated claim is treated as verified before independent review.</dd></div>
+          <div class="reveal"><dt>Are the reports public?</dt><dd>Reports and supporting artifacts will be released according to the project’s publication and validation schedule.</dd></div>
+          <div class="reveal"><dt>How can mathematicians participate?</dt><dd>Mathematicians may express interest in joining the paper as subject-matter co-authors through the <a href="#join">website contact form</a>.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="lockup" href="#top" aria-label="Levain Arena, back to top">
+        <span class="logo" role="img" aria-label="Levain Arena"><span class="logo-mark"><img class="l-ring" src="assets/logo/ring.png" alt=""><img class="l-green" src="assets/logo/green.png" alt=""><img class="l-gold" src="assets/logo/gold.png" alt=""><img class="l-b" style="--n:4;--ox:90.04%;--oy:3.98%;--dx:-10.9%;--dy:22.8%" src="assets/logo/b1.png" alt=""><img class="l-b" style="--n:1;--ox:80.84%;--oy:12.05%;--dx:-1.7%;--dy:14.8%" src="assets/logo/b2.png" alt=""><img class="l-b" style="--n:3;--ox:92.74%;--oy:19.44%;--dx:-13.6%;--dy:7.4%" src="assets/logo/b3.png" alt=""><img class="l-b" style="--n:0;--ox:80.28%;--oy:27.25%;--dx:-1.2%;--dy:-0.5%" src="assets/logo/b4.png" alt=""><img class="l-b" style="--n:2;--ox:90.65%;--oy:30.73%;--dx:-11.6%;--dy:-3.9%" src="assets/logo/b5.png" alt=""><img class="l-drift" style="--n:3;--ox:90.04%;--oy:3.98%;--dx:-10.9%;--dy:22.8%" src="assets/logo/b1.png" alt=""><img class="l-drift" style="--n:0;--ox:80.84%;--oy:12.05%;--dx:-1.7%;--dy:14.8%" src="assets/logo/b2.png" alt=""><img class="l-drift" style="--n:1;--ox:92.74%;--oy:19.44%;--dx:-13.6%;--dy:7.4%" src="assets/logo/b3.png" alt=""><img class="l-drift" style="--n:2;--ox:90.65%;--oy:30.73%;--dx:-11.6%;--dy:-3.9%" src="assets/logo/b5.png" alt=""></span><span class="l-word" aria-hidden="true">Levain Arena</span></span>
+      </a>
+      <p>Open-ended AI research under fixed computational budgets</p>
+    </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <ul>
+        <li><a href="#question">Research</a></li>
+        <li><a href="#design">Arena design</a></li>
+        <li><a href="#agents">Agents</a></li>
+        <li><a href="#evaluation">Evaluation</a></li>
+        <li><a href="#paper">Paper</a></li>
+        <li><a href="#join">Co-author invitation</a></li>
+      </ul>
+      <ul>
+        <!-- Contact points to the form until there is a project email -->
+        <li><a href="#join">Contact</a></li>
+        <li><a href="https://github.com/levain-arena">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script src="assets/painting.js" defer></script>
+<script src="assets/bakery.js" defer></script>
+</body>
+</html>
