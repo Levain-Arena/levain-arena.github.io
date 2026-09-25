@@ -1,8 +1,8 @@
 # Levain Arena website
 
 The public page of Levain Arena: nine AI agents, each with 100 million tokens, doing open-ended mathematical research
-in the Levain Harness, with human experts reviewing what they produce. Published at https://levain-arena.github.io/
-by GitHub Pages from the default branch of this repository. One static page, no build step; `.nojekyll` makes Pages
+in the Levain Harness, with human experts reviewing what they produce. Published at https://levainarena.org/
+by GitHub Pages from the default branch of this repository (`CNAME` holds the domain; DNS is on Cloudflare). One static page, no build step; `.nojekyll` makes Pages
 serve the files as they are. To preview locally, run `python3 -m http.server` here and open http://localhost:8000.
 
 ## Files
