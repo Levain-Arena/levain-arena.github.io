@@ -22,7 +22,7 @@
   const still = pinned !== null || matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // --- frames: the arena first, then every agent in the list below
-  const frames = [{name: 'Levain Arena', title: 'Nine AI agents, each with 100 million tokens', color: ARENA, logo: 'assets/logo/mark.png', pending: false}];
+  const frames = [{name: 'Levain Arena', title: 'AI agents, each with 100 million tokens', color: ARENA, logo: 'assets/logo/mark.png', pending: false}];
   document.querySelectorAll('#agents .plates > li').forEach(li => {
     const img = li.querySelector('.plate .mlogo');
     const pending = li.classList.contains('pending');

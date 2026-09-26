@@ -1,13 +1,17 @@
 # Levain Arena website
 
-The public page of Levain Arena: nine AI agents, each with 100 million tokens, doing open-ended mathematical research
-in the Levain Harness, with human experts reviewing what they produce. Published at https://levainarena.org/
+The public page of Levain Arena: AI agents, each with 100 million tokens, doing open-ended research in the Levain
+Harness, with human experts assessing what they produce. Mathematics is the first domain; the page does not state how
+many agents there are, since that will change. Published at https://levainarena.org/
 by GitHub Pages from the default branch of this repository (`CNAME` holds the domain; DNS is on Cloudflare). One static page, no build step; `.nojekyll` makes Pages
 serve the files as they are. To preview locally, run `python3 -m http.server` here and open http://localhost:8000.
 
 ## Files
 
-- `index.html`: every section of the page.
+- `index.html`: every section of the page. The upper sections (research question, arena design, Levain Harness) hold
+  for every domain; **Domains** shows mathematics as a painted yeast cell and the domains still to come as pencil
+  outlines ("Next domain"), and opening a domain means painting one in; the mathematics domain then opens with its own
+  heading (`#mathematics`), and the agents, evaluation, paper and co-author invitation below it belong to it.
 - `assets/style.css`: colour and type tokens at the top. The colours come from the Levain Arena logo (navy #1D5468,
   green #498D76, gold #E5B44F); shapes on the page are yeast cells, since levain is a culture of wild yeast.
 - `assets/painting.js`: the hero painting, a yeast culture. A budding mother cell (navy wall, a vacuole, a gold nucleus,

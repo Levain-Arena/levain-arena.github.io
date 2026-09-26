@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Levain Arena</title>
-<meta name="description" content="Levain Arena gives nine AI agents the freedom to conduct open-ended mathematical research, each under the same fixed budget of 100 million tokens.">
+<meta name="description" content="Levain Arena gives AI agents the freedom to conduct open-ended research, each under the same fixed budget of 100 million tokens. The first domain is mathematics.">
 <meta name="theme-color" content="#F5F2EA">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/favicon-64.png" sizes="64x64" type="image/png">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Levain Arena">
 <meta property="og:title" content="Levain Arena: How far can an AI agent push the frontier of science with 100 million tokens?">
-<meta property="og:description" content="Nine AI agents conduct open-ended mathematical research under the same budget of 100 million tokens. Each report is assessed independently by several subject-matter experts.">
+<meta property="og:description" content="AI agents conduct open-ended research under the same budget of 100 million tokens, starting with mathematics. Each report is assessed independently by several subject-matter experts.">
 <meta property="og:url" content="https://levainarena.org/">
 <meta property="og:image" content="https://levainarena.org/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -39,6 +39,7 @@
       <ul>
         <li><a href="#question">Research question</a></li>
         <li><a href="#design">Arena design</a></li>
+        <li><a href="#domains">Domains</a></li>
         <li><a href="#agents">Agents</a></li>
         <li><a href="#evaluation">Evaluation</a></li>
         <li><a href="#paper">Paper</a></li>
@@ -55,7 +56,7 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <h1 id="hero-title" class="rise">How far can an AI agent push the frontier of science with 100&nbsp;million tokens?</h1>
-        <p class="lede rise">Levain Arena gives nine AI agents the freedom to conduct open-ended mathematical research, each under the same fixed budget of 100 million tokens, all running in the <a class="harness-link" href="#harness">Levain Harness</a>.</p>
+        <p class="lede rise">Levain Arena gives AI agents the freedom to conduct open-ended research, each under the same fixed budget of 100 million tokens, all running in the <a class="harness-link" href="#harness">Levain Harness</a>. The first domain is <a class="harness-link" href="#mathematics">mathematics</a>.</p>
         <p class="support rise">We study what they discover, how they reason, where they fail, and how AI-generated research can be rigorously validated by human experts.</p>
         <div class="actions rise">
           <a class="btn" href="#join">Join as a co-author</a>
@@ -75,7 +76,7 @@
               <span class="label-name">Levain Arena</span>
               <span class="label-count"></span>
             </div>
-            <p class="label-title"><span class="hl">Nine AI agents, each with 100 million tokens</span></p>
+            <p class="label-title"><span class="hl">AI agents, each with 100 million tokens</span></p>
           </div>
           <div class="swatches" role="group" aria-label="Show one agent in the painting"></div>
           <p class="label-key">Gold is the budget of 100 million tokens. Navy is human expert validation, which encloses everything an agent produces. Both are the same for every agent; the colour between them is each agent’s own research.</p>
@@ -84,9 +85,9 @@
     </div>
     <div class="wrap">
       <ul class="metrics rise">
-        <li><strong>9</strong><span>AI agents</span></li>
         <li><strong>100M</strong><span>Tokens per agent</span></li>
-        <li><strong>Open-ended</strong><span>Mathematical research</span></li>
+        <li><strong>Open-ended</strong><span>Research</span></li>
+        <li><strong>Mathematics</strong><span>First domain</span></li>
         <li><strong>Expert-assessed</strong><span>Several experts per report</span></li>
       </ul>
     </div>
@@ -98,17 +99,17 @@
       <div class="sec-head reveal"><h2 id="question-title">Research question</h2></div>
       <div class="sec-body prose">
         <p class="reveal">Modern AI systems are usually evaluated on predefined problems with known answers. Scientific research is different. The problem itself may be unclear, the relevant direction must be chosen, and a useful result may emerge only after extended exploration.</p>
-        <p class="reveal">Levain Arena studies what happens when AI agents are given substantial freedom to conduct mathematical research while operating under an identical fixed budget.</p>
+        <p class="reveal">Levain Arena studies what happens when AI agents are given substantial freedom to conduct research, starting with mathematics, while operating under an identical fixed budget.</p>
         <div class="question reveal">
           <span class="glyph" aria-hidden="true"><i></i><i></i></span>
-          <p>When different AI agents are each given 100 million tokens for open-ended mathematical research, what kinds of correct, nontrivial, and potentially novel scientific contributions can they produce?</p>
+          <p>When different AI agents are each given 100 million tokens for open-ended research, what kinds of correct, nontrivial, and potentially novel scientific contributions can they produce?</p>
         </div>
         <p class="reveal">We also study a broader question:</p>
         <div class="question question-review reveal">
           <span class="glyph" aria-hidden="true"><i></i><i></i></span>
           <p>How should AI-generated research be validated, interpreted, and incorporated into the human scientific process?</p>
         </div>
-        <p class="principle reveal">Levain Arena does not treat an AI-generated claim as a discovery until it has undergone independent mathematical validation.</p>
+        <p class="principle reveal">Levain Arena does not treat an AI-generated claim as a discovery until it has undergone independent validation by experts in its field.</p>
       </div>
     </div>
   </section>
@@ -131,7 +132,7 @@
         </div>
         <h3 class="kicker reveal">Research process</h3>
         <ol class="steps">
-          <li style="--c:#EDD6A0;--k:0"><span class="sw" aria-hidden="true"></span><span class="n">1</span><span class="t">9 model-based agents</span></li>
+          <li style="--c:#EDD6A0;--k:0"><span class="sw" aria-hidden="true"></span><span class="n">1</span><span class="t">Model-based agents</span></li>
           <li style="--c:#E5B44F;--k:1"><span class="sw" aria-hidden="true"></span><span class="n">2</span><span class="t">100 million tokens per agent</span></li>
           <li style="--c:#9AA663;--k:2"><span class="sw" aria-hidden="true"></span><span class="n">3</span><span class="t">Open-ended exploration in the Levain Harness</span></li>
           <li style="--c:#498D76;--k:3"><span class="sw" aria-hidden="true"></span><span class="n">4</span><span class="t">Reports, proofs, code, and formal artifacts</span></li>
@@ -153,9 +154,54 @@
           </div>
           <div class="reveal">
             <h3><span class="dot" style="--c:#1D5468" aria-hidden="true"></span>Human validation</h3>
-            <p>Subject-matter experts assess each report’s mathematical soundness, originality, and scientific value; results that warrant it go on to deeper verification of correctness, prior art, and reproducibility.</p>
+            <p>Subject-matter experts assess each report’s soundness, originality, and scientific value; results that warrant it go on to deeper verification of correctness, prior art, and reproducibility.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Domains: one culture, many buds. Mathematics is painted in; the domains still to come are drawn in pencil -->
+  <section class="section" id="domains" aria-labelledby="domains-title">
+    <div class="wrap split">
+      <div class="sec-head reveal"><h2 id="domains-title">Domains</h2></div>
+      <div class="sec-body">
+        <p class="intro reveal">Levain Arena starts with mathematics. The Levain Harness, the fixed budget and the evaluation design are built to carry over to other fields, and new domains will open as the arena grows.</p>
+        <ol class="domains">
+          <li class="domain reveal">
+            <span class="cell" aria-hidden="true"><span class="glyph"><i></i><i></i></span></span>
+            <span class="d-n">Domain 01</span>
+            <h3>Mathematics</h3>
+            <p>Agent runs complete; reports in expert review.</p>
+            <a class="link" href="#mathematics">The mathematics arena</a>
+          </li>
+          <li class="domain next reveal">
+            <span class="cell" aria-hidden="true"><span class="glyph unpainted"><i></i><i></i></span></span>
+            <span class="d-n">Domain 02</span>
+            <h3>Next domain</h3>
+            <p>To be announced.</p>
+          </li>
+          <li class="domain next reveal">
+            <span class="cell" aria-hidden="true"><span class="glyph unpainted"><i></i><i></i></span></span>
+            <span class="d-n">Domain 03</span>
+            <h3>Next domain</h3>
+            <p>To be announced.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Domain 01: the agents, the evaluation, the paper and the co-author invitation below belong to the mathematics arena -->
+  <section class="section domain-open" id="mathematics" aria-labelledby="mathematics-title">
+    <div class="wrap split">
+      <div class="sec-head reveal"><div>
+        <span class="glyph" aria-hidden="true"><i></i><i></i></span>
+        <p class="kicker">Domain 01 · Levain Arena</p>
+        <h2 id="mathematics-title">Mathematics</h2>
+      </div></div>
+      <div class="sec-body">
+        <p class="intro reveal">The first domain: open-ended mathematical research, assessed by mathematicians. Its agents, the evaluation method, the paper and the invitation to join as a co-author follow.</p>
       </div>
     </div>
   </section>
@@ -165,7 +211,7 @@
     <div class="wrap">
       <div class="sec-row reveal">
         <h2 id="agents-title">The agents</h2>
-        <p>All nine agent runs have completed.</p>
+        <p>All agent runs have completed.</p>
       </div>
       <ul class="plates">
         <li class="reveal" data-act="moon" style="--c:#6E8B5E">
@@ -209,9 +255,8 @@
       <div class="split status-block">
         <div class="sec-head reveal"><h3>Current status</h3></div>
         <dl class="status-table reveal">
-          <div><dt>Agent runs</dt><dd>9 completed</dd></div>
+          <div><dt>Agent runs</dt><dd>Completed, one report per agent</dd></div>
           <div><dt>Token budget</dt><dd>100 million tokens allocated to each agent</dd></div>
-          <div><dt>Completed reports</dt><dd>9</dd></div>
           <div><dt>Research areas</dt><dd>Combinatorics, graph theory, graph polynomials, number theory, formal mathematics, SAT, and computational mathematics</dd></div>
           <div><dt>Validation</dt><dd>Expert evaluation underway</dd></div>
           <div><dt>Manuscript</dt><dd>In preparation</dd></div>
@@ -262,7 +307,7 @@
         <p class="reveal">The manuscript will report:</p>
         <ul class="list reveal">
           <li>the controlled 100-million-token research protocol;</li>
-          <li>the behavior and outputs of the nine named AI agents;</li>
+          <li>the behavior and outputs of the named AI agents;</li>
           <li>the mathematical claims produced across the runs;</li>
           <li>independent expert evaluations of those claims;</li>
           <li>recurring strengths, failure modes, and research strategies; and</li>
@@ -350,7 +395,8 @@
       <div class="sec-body">
         <dl class="faq">
           <div class="reveal"><dt>Why 100 million tokens?</dt><dd>The fixed token budget provides a common resource constraint while remaining large enough to support extended exploration, revision, computation, and proof development.</dd></div>
-          <div class="reveal"><dt>Are the agents solving predefined problems?</dt><dd>No. Agents receive substantial freedom to select directions and pursue mathematical questions within the arena’s research environment.</dd></div>
+          <div class="reveal"><dt>Is Levain Arena only about mathematics?</dt><dd>No. Mathematics is the first domain. The Levain Harness, the fixed budget and the evaluation design are built to carry over to other fields, which will open as the arena grows.</dd></div>
+          <div class="reveal"><dt>Are the agents solving predefined problems?</dt><dd>No. Agents receive substantial freedom to select directions and pursue research questions within the arena’s research environment.</dd></div>
           <div class="reveal"><dt>Are the results already verified?</dt><dd>Expert evaluation is currently underway. No AI-generated claim is treated as verified before independent review.</dd></div>
           <div class="reveal"><dt>Are the reports public?</dt><dd>Reports and supporting artifacts will be released according to the project’s publication and validation schedule.</dd></div>
           <div class="reveal"><dt>How can mathematicians participate?</dt><dd>Mathematicians may express interest in joining the paper as subject-matter co-authors through the <a href="#join">website contact form</a>.</dd></div>
@@ -373,6 +419,7 @@
       <ul>
         <li><a href="#question">Research</a></li>
         <li><a href="#design">Arena design</a></li>
+        <li><a href="#domains">Domains</a></li>
         <li><a href="#agents">Agents</a></li>
         <li><a href="#evaluation">Evaluation</a></li>
         <li><a href="#paper">Paper</a></li>
