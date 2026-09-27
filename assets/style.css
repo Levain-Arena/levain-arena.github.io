@@ -18,6 +18,14 @@
   --green: #498D76;
   --gold: #E5B44F;
   --gold-ink: #7A5A12;
+  /* each domain has its own colours, apart from the logo's navy, green and gold, which stay Levain Arena's own:
+     mathematics a warm earth (oxide, terracotta, apricot), AI a cool violet */
+  --math-1: #7B3A2A;
+  --math-2: #BF6B45;
+  --math-3: #F0B97F;
+  --ai-1: #353063;
+  --ai-2: #6C62A6;
+  --ai-3: #C3B9E3;
   --gutter: clamp(20px, 4.4vw, 64px);
   --head-h: 76px;
   --ease: cubic-bezier(.22, 1, .36, 1);
@@ -29,6 +37,8 @@
   --sans: "Jost", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   /* paper grain for walls and plates */
   --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .14 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+  /* a dry brush's edge, for paint that is still going on (.glyph.painting) */
+  --brush: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100' preserveAspectRatio='none'%3E%3Cfilter id='b' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02 .45' numOctaves='3' seed='4'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='16' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3Crect x='-40' y='-40' width='140' height='180' filter='url(%23b)'/%3E%3C/svg%3E");
   /* paint grain, blended soft-light over colour */
   --paint-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0' intercept='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
@@ -124,13 +134,31 @@ sub { font-size: .7em; line-height: 0; vertical-align: -.2em; }
 .homage .n { left: 30%; top: 45%; width: 40%; height: 40%; background: var(--i, var(--gold)); }
 .homage .grain { position: absolute; inset: 0; border-radius: var(--cell-1); pointer-events: none; background-image: var(--paint-grain); background-size: 180px; mix-blend-mode: soft-light; opacity: .5; }
 
-.glyph { position: relative; flex: none; border-radius: var(--cell-1); background: var(--navy); transform: rotate(-14deg); }
+.glyph { position: relative; flex: none; border-radius: var(--cell-1); background: var(--g1, var(--navy)); transform: rotate(-14deg); }
 .glyph i { position: absolute; display: block; border-radius: var(--cell-2); }
 .glyph i:last-child { border-radius: var(--cell-3); }
-.glyph i:first-child { left: 15%; top: 22.5%; width: 70%; height: 70%; background: var(--green); }
-.glyph i:last-child { left: 30%; top: 45%; width: 40%; height: 40%; background: var(--gold); }
+.glyph i:first-child { left: 15%; top: 22.5%; width: 70%; height: 70%; background: var(--g2, var(--green)); }
+.glyph i:last-child { left: 30%; top: 45%; width: 40%; height: 40%; background: var(--g3, var(--gold)); }
+.glyph.math { --g1: var(--math-1); --g2: var(--math-2); --g3: var(--math-3); }
+.glyph.ai { --g1: var(--ai-1); --g2: var(--ai-2); --g3: var(--ai-3); }
 /* drawn in pencil, not yet painted */
 .glyph.unpainted, .glyph.unpainted i { background: transparent; box-shadow: inset 0 0 0 1.5px var(--navy); }
+/* being painted, for a domain that is under way: the pencil drawing with paint brushed partway in, the navy ahead of
+   the green and the gold still bare. The paint's edge is a dry brush: a mask twice the glyph's width, its left half
+   opaque with a ragged, streaked edge; sliding it sets how far the paint has come. Brushed in once when the glyph
+   comes into view, then it holds. */
+.glyph.painting, .glyph.painting i { background: transparent; box-shadow: inset 0 0 0 1.25px var(--pencil); }
+.glyph.painting::before, .glyph.painting i:first-child::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--g1, var(--navy));
+  -webkit-mask: var(--brush) no-repeat 38% 0 / 200% 100%;
+  mask: var(--brush) no-repeat 38% 0 / 200% 100%;
+}
+.glyph.painting i:first-child::before { background: var(--g2, var(--green)); -webkit-mask-position: 60% 0; mask-position: 60% 0; }
+.js .reveal .glyph.painting::before, .js .reveal .glyph.painting i:first-child::before {
+  transition: -webkit-mask-position 2.6s cubic-bezier(.6, .05, .3, 1) .3s, mask-position 2.6s cubic-bezier(.6, .05, .3, 1) .3s;
+}
+.js .reveal:not(.in) .glyph.painting::before, .js .reveal:not(.in) .glyph.painting i:first-child::before { -webkit-mask-position: 112% 0; mask-position: 112% 0; }
+@media (prefers-reduced-motion: reduce) { .js .reveal .glyph.painting::before, .js .reveal .glyph.painting i:first-child::before { transition: none; } }
 
 /* ---------- header ---------- */
 .site-head { position: sticky; top: 0; z-index: 50; background-color: var(--bg); background-image: var(--paper-grain); border-bottom: 1px solid var(--rule); }
@@ -158,6 +186,7 @@ sub { font-size: .7em; line-height: 0; vertical-align: -.2em; }
 /* ---------- hero ---------- */
 .hero {
   padding-bottom: clamp(72px, 8vw, 120px);
+  overflow-x: clip;   /* the painting's shade reaches past the page edge on a phone; it must not widen the page */
   /* gallery light falling on the wall behind the painting */
   background: radial-gradient(ellipse 46% 62% at 73% 40%, rgba(255, 253, 247, .85), rgba(255, 253, 247, 0) 72%);
 }
@@ -348,6 +377,44 @@ sub { font-size: .7em; line-height: 0; vertical-align: -.2em; }
 .pending h3 { color: var(--muted); }
 .pending .meta { color: var(--gold-ink); }
 
+/* the agents, by domain: a card for each domain, and choosing one opens its panel below (site.js). Nothing is open at
+   first. Without scripts the cards and the hint are hidden and every panel is shown under its kicker. The two cards
+   stand over the two columns of plates. */
+.pick-hint, .picks { display: none; }
+.js .pick-hint { display: block; }
+.js .picks { display: grid; }
+.picks { margin-top: 48px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 56px; }
+.pick {
+  position: relative; display: grid; grid-template-columns: 60px minmax(0, 1fr); align-items: center; gap: 24px;
+  padding: 28px 28px 26px; text-align: left; font: inherit; color: var(--ink); border: 0; border-radius: 0; cursor: pointer;
+  background-color: var(--paper); background-image: var(--paper-grain);
+  box-shadow: 0 1px 1px rgba(27, 39, 51, .08), 0 16px 28px -20px rgba(27, 39, 51, .5);
+  transition: transform .6s var(--ease), box-shadow .6s var(--ease);
+}
+/* the chosen domain carries a band of its own darkest colour across its top, as the form carries navy */
+.pick::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: var(--band, var(--navy)); transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease); }
+.pick[aria-expanded="true"]::before { transform: scaleX(1); }
+.pick:hover { transform: translateY(-4px); box-shadow: 0 1px 1px rgba(27, 39, 51, .08), 0 24px 36px -22px rgba(27, 39, 51, .55); }
+.pick .glyph { width: 50px; height: 50px; justify-self: center; }
+.pick-text { display: flex; flex-direction: column; min-width: 0; }
+.pick-name { margin-top: 4px; font-size: 28px; font-weight: 450; line-height: 1.1; letter-spacing: -.015em; }
+.pick-status { margin-top: 8px; font-size: 15px; line-height: 1.4; color: var(--muted); }
+.pick.ongoing .pick-status { color: var(--gold-ink); }
+.pick.math { --band: var(--math-1); }
+.pick.ai { --band: var(--ai-1); }
+@media (prefers-reduced-motion: reduce) { .pick, .pick::before { transition: none; } }
+.domain-panel { margin-top: 64px; }
+.js .domain-panel:not(.open) { display: none; }
+.js .panel-kicker { display: none; }
+.panel-kicker { margin-bottom: 14px; }
+.panel-intro { font-size: 17px; line-height: 1.6; color: var(--muted); max-width: 44em; }
+.domain-panel .plates { margin-top: 36px; }
+/* a domain that is under way: its glyph being painted, and a note where its agents will be */
+.ongoing-note { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 36px; align-items: center; padding: 44px 0 48px; border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--rule); }
+.ongoing-note .glyph { width: 76px; height: 76px; justify-self: center; }
+.ongoing-note p { font-size: clamp(20px, 1.8vw, 26px); line-height: 1.4; color: var(--soft); max-width: 30em; }
+.ongoing-note strong { font-weight: 500; color: var(--ai-1); }
+
 .status-block { margin-top: 128px; }
 .status-block h3 { font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: .18em; text-transform: uppercase; }
 .status-table { border-top: 1.5px solid var(--ink); }
@@ -453,8 +520,8 @@ sub { font-size: .7em; line-height: 0; vertical-align: -.2em; }
 
 /* ---------- smaller screens ---------- */
 /* ---------- domains: one culture, many buds ----------
-   Mathematics is painted in, the domains still to come are pencil outlines, each smaller, like buds off the culture;
-   opening a domain means painting one in. The mathematics section opens with the same painted cell. */
+   Mathematics is painted in, AI is being painted, the domains still to come are pencil outlines, each smaller, like
+   buds off the culture; opening a domain means painting one in. */
 .domains { margin-top: 52px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; border-top: 1.5px solid var(--ink); }
 .domain { padding-top: 26px; display: flex; flex-direction: column; align-items: flex-start; }
 .domain .cell { display: flex; align-items: center; height: 84px; margin-bottom: 16px; }
@@ -465,11 +532,9 @@ sub { font-size: .7em; line-height: 0; vertical-align: -.2em; }
 .d-n { font-size: 13px; letter-spacing: .06em; color: var(--muted); }
 .domain h3 { margin-top: 6px; font-size: 24px; font-weight: 450; letter-spacing: -.01em; }
 .domain.next h3 { color: var(--muted); }
+.domain.ongoing p { color: var(--gold-ink); }
 .domain p { margin-top: 8px; font-size: 16px; line-height: 1.55; color: var(--muted); }
 .domain .link { margin-top: 16px; font-size: 16px; }
-.domain-open { padding-bottom: clamp(56px, 6vw, 96px); }
-.domain-open .glyph { display: block; width: 56px; height: 56px; margin-bottom: 28px; }
-.domain-open .kicker { margin-bottom: 12px; }
 
 @media (max-width: 960px) {
   .domains { grid-template-columns: minmax(0, 1fr); gap: 0; }
@@ -527,6 +592,14 @@ sub { font-size: .7em; line-height: 0; vertical-align: -.2em; }
   .question .glyph { width: 32px; height: 32px; }
   .statement { grid-template-columns: minmax(0, 1fr); gap: 22px; }
   .statement .glyph { width: 44px; height: 44px; }
+  .picks { gap: 12px; }
+  .pick { grid-template-columns: minmax(0, 1fr); align-items: start; align-content: start; gap: 12px; padding: 20px 16px 18px; }
+  .pick .glyph { width: 34px; height: 34px; justify-self: start; }
+  .pick-name { font-size: 21px; }
+  .pick-status { font-size: 13.5px; }
+  .domain-panel { margin-top: 44px; }
+  .ongoing-note { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 32px 0 36px; }
+  .ongoing-note .glyph { width: 52px; height: 52px; justify-self: start; }
   .status-table div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .statuses { grid-template-columns: minmax(0, 1fr); }
   .partners { grid-template-columns: minmax(0, 1fr); gap: 12px; }

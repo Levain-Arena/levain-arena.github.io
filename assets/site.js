@@ -1,4 +1,5 @@
-// Levain Arena: mobile menu, current-section underline, scroll reveals, co-author interest form.
+// Levain Arena: mobile menu, current-section underline, scroll reveals, the agents' domain cards, co-author
+// interest form.
 // The hero painting lives in painting.js.
 
 // Where the interest form posts (for example a Formspree or Web3Forms endpoint).
@@ -50,6 +51,39 @@ const FORM_ENDPOINT = '';
       }
     }, {rootMargin: '0px 0px -4% 0px'});
     reveal.forEach(el => io.observe(el));
+  }
+
+  // The agents, by domain: nothing is open until a domain's card is chosen. A link to a domain (#mathematics, #ai)
+  // opens it and brings the room into view, with the cards above the open panel.
+  const room = document.getElementById('agents');
+  const picks = room ? [...room.querySelectorAll('.pick[aria-controls]')] : [];
+  if (picks.length) {
+    const ids = picks.map(b => b.getAttribute('aria-controls'));
+    const open = id => picks.forEach(b => {
+      const on = b.getAttribute('aria-controls') === id;
+      b.setAttribute('aria-expanded', String(on));
+      document.getElementById(b.getAttribute('aria-controls')).classList.toggle('open', on);
+    });
+    picks.forEach(b => b.addEventListener('click', () => {
+      open(b.getAttribute('aria-controls'));
+      history.replaceState(null, '', '#' + b.getAttribute('aria-controls'));
+    }));
+    const follow = behavior => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      if (!ids.includes(id)) return;
+      open(id);
+      room.scrollIntoView({behavior: still ? 'instant' : behavior, block: 'start'});
+    };
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a || !ids.includes(a.getAttribute('href').slice(1))) return;
+      e.preventDefault();
+      history.pushState(null, '', a.getAttribute('href'));
+      follow('smooth');
+    });
+    addEventListener('hashchange', () => follow('smooth'));
+    follow('instant');
+    addEventListener('load', () => follow('instant'), {once: true});   // the browser's own jump to the panel comes later
   }
 
   const form = document.getElementById('interest');
