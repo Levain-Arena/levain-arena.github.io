@@ -6,6 +6,15 @@ ongoing; the page does not state how many agents there are, since that will chan
 by GitHub Pages from the default branch of this repository (`CNAME` holds the domain; DNS is on Cloudflare). One static page, no build step; `.nojekyll` makes Pages
 serve the files as they are. To preview locally, run `python3 -m http.server` here and open http://localhost:8000.
 
+Cloudflare tells browsers to keep CSS and JS for four hours but the page for ten minutes, so a changed stylesheet under
+the same address would meet the new page with the old styles. Every local stylesheet and script link in `index.html`
+therefore carries `?v=` and the first eight hex digits of the file's SHA-256. After editing a CSS or JS file, restamp
+before pushing:
+
+```
+python3 -c "import hashlib,pathlib,re;p=pathlib.Path('index.html');p.write_text(re.sub(r'((?:href|src)=\")(assets/[^\"?]+\.(?:css|js))(?:\?v=[0-9a-f]+)?\"',lambda m:f'{m[1]}{m[2]}?v={hashlib.sha256(pathlib.Path(m[2]).read_bytes()).hexdigest()[:8]}\"',p.read_text()))"
+```
+
 ## Files
 
 - `index.html`: every section of the page. The upper sections (research question, arena design, Levain Harness) hold
