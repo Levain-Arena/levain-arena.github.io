@@ -112,17 +112,6 @@
       eyes: blink(.9),
       hat: [[0, 0, 0, 0], [.28, 0, -2, -4], [.4, 0, 0, 0], [.52, 0, -2, -4], [.64, 0, 0, 0], [1]],
     }},
-    // GPT-5.6 Sol: the logo sets and rises again like the sun; the bread rises with it, stretching in the warmth
-    sunrise: {dur: 3800, front: false, parts: {
-      logo: [[0, 0, 0, 1, 1], [.12, 0, 120, 1, 1, IN], [.14, 0, 150, 1, 0], [.15, -30, 170, 1, 0], [.2, -30, 150, 1, 0, OUT], [.34, -30, 40, 1.06, 1, OUT],
-        [.55, -20, -66, 1.12, 1], [.8, -20, -66, 1.12, 1, IO], [1, 0, 0, 1, 1]],
-      bread: [[0, 0, 0, 0, 1, 1], [.3], [.48, 0, -1, 0, .96, 1.07, OUT], [.78, 0, -1, 0, .96, 1.07], [.9, 0, 0, 0, 1, 1, OUT], [1]],
-      arm: [[0, 0], [.34, 0], [.48, 44, OUT], [.78, 44], [.9, 0], [1]],
-      eyes: [[0, 1], [.46, 1], [.5, .12], [.78, .12], [.82, 1], [1, 1]],
-      hat: [[0, 0, 0, 0], [.46, 0, 0, 0], [.52, 0, -3, -6], [.78, 0, -3, -6], [.88, 0, 0, 0], [1]],
-      face: [[0, 0, 0], [.4, 0, 0], [.5, .6, -1], [.8, .6, -1], [.9, 0, 0], [1]],
-      floor: [[0, 0, 1, 1], [.3], [.48, 0, .94, 1], [.78, 0, .94, 1], [.9, 0, 1, 1], [1]],
-    }},
     // GPT-6 Sol: the sun crosses the sky over the bread like a sundial's; the shadow swings, the bread follows it
     // and shades its eyes at noon
     sundial: {dur: 4000, front: false, parts: {

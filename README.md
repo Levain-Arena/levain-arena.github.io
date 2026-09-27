@@ -20,12 +20,12 @@ serve the files as they are. To preview locally, run `python3 -m http.server` he
   agent's colour in turn. The culture stays alive: granules stream through the cytoplasm, the two daughter cells travel
   slowly round the mother on paths of different curvature (no tracks are drawn; each passes behind her on the far side
   of its path), the cell breathes, and light follows the mouse. It reads each agent's name, topic, colour (`--c`) and logo from the agents
-  list in `index.html`. `?paint=N` shows frame N finished and still (0 is the arena, 1 to 9 the agents).
+  list in `index.html`. `?paint=N` shows frame N finished and still (0 is the arena, then the agents in list order).
 - `assets/bakery.js` and `assets/bread/`: the agents, set as an index. Each entry has a small stage where the Bake AI
   bread meets that agent's company logo, and every agent has its own scene: Kimi jumps for the moon, MiniMax dances to
   the waveform, DeepSeek's whale swims past and lifts the bread, GLM hops in a Z, Grok swoops over and blows the hat
-  off, the Gemini sparkle settles on the hat, GPT-6 Astra tosses the logo like dough, GPT-5.6 Sol rises like the sun,
-  and GPT-6 Sol crosses the sky like the sun over a sundial. The scenes play by themselves, taking turns, and wait while
+  off, the Gemini sparkle settles on the hat, GPT-6 Astra tosses the logo like dough, and GPT-6 Sol
+  crosses the sky like the sun over a sundial. The scenes play by themselves, taking turns, and wait while
   off screen. The bread is the mascot image cut into layers (arm, body, face, eyes, hat), never redrawn; the logos only
   move and change size. In each label the research topic is the headline, brushed over in the agent's colour.
 - `assets/site.js`: mobile menu, current-section underline, scroll reveals and the co-author interest form.
