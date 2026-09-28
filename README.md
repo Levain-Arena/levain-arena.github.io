@@ -25,7 +25,7 @@ python3 -c "import hashlib,pathlib,re;p=pathlib.Path('index.html');p.write_text(
   dry-brush edge), and the domains still to come are the pencil drawing ("Next domain"). **The agents** has a card
   per domain and shows mathematics to begin with (its panel is open in the page itself); a card switches to its
   domain's panel (`#mathematics`, `#ai`), and a link to either hash opens it and scrolls to the cards (`assets/site.js`). Without scripts every panel is shown. Only
-  a domain's panel speaks of that domain: the harness, the evaluation method, the paper, the co-author invitation and
+  a domain's panel speaks of that domain: the harness, the evaluation method, the paper, the invitation to contribute and
   the FAQ are written for every domain (the invitation adds that mathematics is in review now). When a domain opens:
   paint its cell in, give it agents in its panel, and add its colours.
 - `assets/style.css`: colour and type tokens at the top. The colours come from the Levain Arena logo (navy #1D5468,
@@ -44,7 +44,7 @@ python3 -c "import hashlib,pathlib,re;p=pathlib.Path('index.html');p.write_text(
   crosses the sky like the sun over a sundial. The scenes play by themselves, taking turns, and wait while
   off screen. The bread is the mascot image cut into layers (arm, body, face, eyes, hat), never redrawn; the logos only
   move and change size. In each label the research topic is the headline, brushed over in the agent's colour.
-- `assets/site.js`: mobile menu, current-section underline, scroll reveals and the co-author interest form.
+- `assets/site.js`: mobile menu, current-section underline, scroll reveals and the contact form.
 - `assets/logo/`: the Levain Arena logo. `levain-arena-logo.png` is the original (the mark painted on paper); the other
   images are pieces cut from it, with the paper lifted off, that the header and footer stack and animate. The name
   beside the mark is set in Jost capitals.
