@@ -9,7 +9,7 @@ Each file is the company's own logo, downloaded from the company's website or it
 | deepseek.svg | DeepSeek V4.1 Flash | DeepSeek API docs: https://api-docs.deepseek.com/img/favicon.svg |
 | zai.svg | GLM 5.3 | zai-org/GLM-5 repository, `resources/logo.svg`: https://raw.githubusercontent.com/zai-org/GLM-5/main/resources/logo.svg |
 | grok.svg | Grok 4.7 | The Grok symbol from the page markup of https://grok.com |
-| gemini.svg | Gemini 3.1 Pro | Google's static CDN, the Gemini sparkle: https://www.gstatic.com/lamda/images/gemini_sparkle_aurora_33f86dc0c0257da337c63.svg |
+| gemini.svg | Gemini 3.8 Flash | Google's static CDN, the Gemini sparkle: https://www.gstatic.com/lamda/images/gemini_sparkle_aurora_33f86dc0c0257da337c63.svg |
 | openai.svg | GPT-6 Astra, GPT-6 Sol | The OpenAI blossom from the page markup of https://developers.openai.com |
 
 These are trademarks of their owners, shown only to identify which company's model each agent is.
