@@ -22,9 +22,9 @@ python3 -c "import hashlib,pathlib,re;p=pathlib.Path('index.html');p.write_text(
   the logo's navy, green and gold (`assets/logo/mark-<domain>.png`, made from the logo's own layers by
   `tools/logo/variants.py`; the colours are `--math-*`, `--ai-*` in `style.css`). Mathematics is painted in, AI is being
   painted (`.dmark.painting`: its colours brushed partway across `mark-pencil.png`, the logo drawn in pencil, with a
-  dry-brush edge), and the domains still to come are the pencil drawing ("Next domain"). **The agents** opens
-  with a card per domain and nothing open; choosing a card opens that domain's panel (`#mathematics`, `#ai`), and a
-  link to either hash opens it and scrolls to the cards (`assets/site.js`). Without scripts every panel is shown. Only
+  dry-brush edge), and the domains still to come are the pencil drawing ("Next domain"). **The agents** has a card
+  per domain and shows mathematics to begin with (its panel is open in the page itself); a card switches to its
+  domain's panel (`#mathematics`, `#ai`), and a link to either hash opens it and scrolls to the cards (`assets/site.js`). Without scripts every panel is shown. Only
   a domain's panel speaks of that domain: the harness, the evaluation method, the paper, the co-author invitation and
   the FAQ are written for every domain (the invitation adds that mathematics is in review now). When a domain opens:
   paint its cell in, give it agents in its panel, and add its colours.

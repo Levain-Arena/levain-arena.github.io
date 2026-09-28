@@ -373,9 +373,9 @@ sub { font-size: .7em; line-height: 0; vertical-align: -.2em; }
 .pending h3 { color: var(--muted); }
 .pending .meta { color: var(--gold-ink); }
 
-/* the agents, by domain: a card for each domain, and choosing one opens its panel below (site.js). Nothing is open at
-   first. Without scripts the cards and the hint are hidden and every panel is shown under its kicker. The two cards
-   stand over the two columns of plates. */
+/* the agents, by domain: a card for each domain, and the chosen domain's panel below (site.js); mathematics is open to
+   begin with. Without scripts the cards and the hint are hidden and every panel is shown under its kicker. The two
+   cards stand over the two columns of plates. */
 .pick-hint, .picks { display: none; }
 .js .pick-hint { display: block; }
 .js .picks { display: grid; }

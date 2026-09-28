@@ -53,8 +53,8 @@ const FORM_ENDPOINT = '';
     reveal.forEach(el => io.observe(el));
   }
 
-  // The agents, by domain: nothing is open until a domain's card is chosen. A link to a domain (#mathematics, #ai)
-  // opens it and brings the room into view, with the cards above the open panel.
+  // The agents, by domain: mathematics is open to begin with (in the page itself), and a domain's card switches to it.
+  // A link to a domain (#mathematics, #ai) opens it and brings the room into view, with the cards above the panel.
   const room = document.getElementById('agents');
   const picks = room ? [...room.querySelectorAll('.pick[aria-controls]')] : [];
   if (picks.length) {

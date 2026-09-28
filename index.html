@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..600;1,300..600&display=swap">
 <link rel="canonical" href="https://levainarena.org/">
-<link rel="stylesheet" href="assets/style.css?v=9ca04ff7">
+<link rel="stylesheet" href="assets/style.css?v=1f8fc562">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -194,16 +194,16 @@
     </div>
   </section>
 
-  <!-- Agents, by domain: a card for each domain, and its panel opens below when the card is chosen (site.js).
-       Nothing is open at first; without scripts the cards are hidden and every panel is shown. -->
+  <!-- Agents, by domain: a card for each domain, and the chosen domain's panel below (site.js). Mathematics is open to
+       begin with; the other cards switch to their domain. Without scripts the cards are hidden and every panel shown. -->
   <section class="section room" id="agents" aria-labelledby="agents-title">
     <div class="wrap">
       <div class="sec-row reveal">
         <h2 id="agents-title">The agents</h2>
-        <p class="pick-hint">Choose a domain to see its agents.</p>
+        <p class="pick-hint">Choose a domain to switch.</p>
       </div>
       <div class="picks reveal" role="group" aria-label="Domains">
-        <button class="pick math" type="button" id="pick-mathematics" aria-controls="mathematics" aria-expanded="false">
+        <button class="pick math" type="button" id="pick-mathematics" aria-controls="mathematics" aria-expanded="true">
           <span class="dmark" aria-hidden="true"><img src="assets/logo/mark-mathematics.png" alt=""></span>
           <span class="pick-text"><span class="d-n">Domain 01</span><span class="pick-name">Mathematics</span><span class="pick-status">Runs complete · In expert review</span></span>
         </button>
@@ -214,7 +214,7 @@
       </div>
 
       <!-- Domain 01. The hero painting reads its colours, names, topics and logos from this list -->
-      <div class="domain-panel" id="mathematics" role="region" aria-labelledby="pick-mathematics">
+      <div class="domain-panel open" id="mathematics" role="region" aria-labelledby="pick-mathematics">
         <p class="kicker panel-kicker">Domain 01 · Mathematics</p>
         <p class="panel-intro reveal">Open-ended mathematical research, assessed by mathematicians. All agent runs have completed, and the reports are in expert review.</p>
         <ul class="plates">
@@ -445,7 +445,7 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=4062cc06" defer></script>
+<script src="assets/site.js?v=60552682" defer></script>
 <script src="assets/painting.js?v=52b800fd" defer></script>
 <script src="assets/bakery.js?v=7ebaa931" defer></script>
 </body>
