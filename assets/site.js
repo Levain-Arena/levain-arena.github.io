@@ -1,5 +1,4 @@
-// Levain Arena: mobile menu, current-section underline, scroll reveals, the agents' domain cards, co-author
-// interest form.
+// Levain Arena: mobile menu, current-section underline, scroll reveals, the agents' domain cards, the contact form.
 // The hero painting lives in painting.js.
 
 // Where the interest form posts (for example a Formspree or Web3Forms endpoint).

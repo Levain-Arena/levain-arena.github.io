@@ -449,7 +449,7 @@ sub { font-size: .7em; line-height: 0; vertical-align: -.2em; }
 .manuscript strong { display: inline-flex; align-items: center; gap: 12px; font-size: 28px; font-weight: 400; letter-spacing: -.01em; }
 .manuscript strong::before { content: ""; width: 14px; height: 13px; border-radius: var(--cell-4); transform: rotate(-20deg); background-color: var(--gold); background-image: var(--paint-grain); background-size: 90px; background-blend-mode: soft-light; }
 
-/* co-author invitation */
+/* the invitation to contribute */
 .join h2 { font-size: clamp(36px, 4.2vw, 64px); font-weight: 400; letter-spacing: -.03em; line-height: 1.02; max-width: 15em; text-wrap: balance; }
 .join-grid { margin-top: 60px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 104px); align-items: start; }
 .join .prose h3 { margin-top: 44px; font-size: 21px; font-weight: 450; }
